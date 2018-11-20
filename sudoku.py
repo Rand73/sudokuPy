@@ -1,6 +1,10 @@
 from sudoku.sudoku import Sudoku
 
-print("Test avec grille de sudoku taille 4")
-sudoku = Sudoku(4)
+print("Test avec grille de sudoku")
+
+file = open("fichiers/puzzles.sdk", 'r')
+board = file.readline().replace('\n', '')
+file.close()
+sudoku = Sudoku(board)
 
 sudoku.display()

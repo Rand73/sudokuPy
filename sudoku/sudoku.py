@@ -1,14 +1,15 @@
+import math
 
 class Sudoku:
     """Classe définissant une grille de sudoku et les méthodes necessaire à sa résolution"""
 
 
-    def __init__(self, size: int):
+    def __init__(self, board):
         """
 
         :type size: Taille de la grille sudoku
         """
-        self.board = [[0] * size] * size
+        self.board = board
 
 
     def is_in_row(self, row: int, number: int):
@@ -45,8 +46,26 @@ class Sudoku:
 
     def display(self):
         """Affiche la grille sur la console."""
-        for row in self.board:
-            print(row)
+        #self.board = "0" * 25 * 25
+        print(self.board)
+
+        size = len(self.board)
+        size_box = math.sqrt(math.sqrt(size))
+        print(size_box)
+        print_row_separator = " " + ("-" * int((size / (size_box * (size_box + 1)/size_box))))
+        print(len(print_row_separator))
+        print_row = '| '
+        print(print_row_separator)
+        for i, row in enumerate(self.board):
+            print_row += '{0} '.format(row)
+            if (i + 1) % math.sqrt(math.sqrt(size)) == 0:
+                print_row += '| '
+            if (i + 1) % math.sqrt(size) == 0:
+                print(print_row)
+                print_row = '| '
+            if (i + 1) % (size / size_box) == 0:
+                print(print_row_separator)
+
 
 
         return
