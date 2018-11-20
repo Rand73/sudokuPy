@@ -46,14 +46,12 @@ class Sudoku:
 
     def display(self):
         """Affiche la grille sur la console."""
-        #self.board = "0" * 25 * 25
-        print(self.board)
-
+        #print(self.board)
         size = len(self.board)
         size_box = math.sqrt(math.sqrt(size))
-        print(size_box)
+        #print(size_box)
         print_row_separator = " " + ("-" * int((size / (size_box * (size_box + 1)/size_box))))
-        print(len(print_row_separator))
+        #print(len(print_row_separator))
         print_row = '| '
         print(print_row_separator)
         for i, row in enumerate(self.board):
@@ -66,6 +64,3 @@ class Sudoku:
             if (i + 1) % (size / size_box) == 0:
                 print(print_row_separator)
 
-
-
-        return
