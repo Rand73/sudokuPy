@@ -1,6 +1,4 @@
 
-
-
 class Sudoku:
     """Classe définissant une grille de sudoku et les méthodes necessaire à sa résolution"""
 
@@ -10,8 +8,8 @@ class Sudoku:
 
         :type size: Taille de la grille sudoku
         """
-        self.board = [0] * size, [0] * size
-        return
+        self.board = [[0] * size] * size
+
 
     def is_in_row(self, row: int, number: int):
         """Vérifie si la ligne contient déjà le nombre number.
@@ -44,3 +42,11 @@ class Sudoku:
         if self.is_in_row(row, number) or self.is_in_col(col, number) or self.is_in_box(row, col, number):
             return False
         return True
+
+    def display(self):
+        """Affiche la grille sur la console."""
+        for row in self.board:
+            print(row)
+
+
+        return
