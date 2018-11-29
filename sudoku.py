@@ -7,4 +7,6 @@ board = file.readline().replace('\n', '')
 file.close()
 sudoku = Sudoku(board)
 
-sudoku.display()
+print(sudoku)
+print(sudoku)
+

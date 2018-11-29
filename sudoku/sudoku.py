@@ -1,16 +1,21 @@
 import math
 
+
 class Sudoku:
     """Classe définissant une grille de sudoku et les méthodes necessaire à sa résolution"""
+    _size: int
+    _board: str
+    _str: str
 
-
-    def __init__(self, board):
+    def __init__(self, board: str, size: int = 9):
         """
 
-        :type size: Taille de la grille sudoku
+        :type board: str
+        :type size: int: Taille de la grille sudoku
         """
-        self.board = board
-
+        self._board = board
+        self._size = size
+        self._str = ""
 
     def is_in_row(self, row: int, number: int):
         """Vérifie si la ligne contient déjà le nombre number.
@@ -30,11 +35,13 @@ class Sudoku:
         """
         return True
 
-    def is_in_box(self, row: int, col: int, number: int):
+    def is_in_box(self, row: int, col: int, number: int) -> bool:
         """Vérifie si la box contient déjà le nombre number.
 
-        Retourne True si la box contient déjà le nombre number
-        Retourne False si la box ne contient pas encore le nombre number
+        :param row:
+        :param col:
+        :param number:
+        :return: True si la box contient déjà le nombre number.
 
         """
         return True
@@ -44,23 +51,27 @@ class Sudoku:
             return False
         return True
 
-    def display(self):
+    def __str__(self):
         """Affiche la grille sur la console."""
-        #print(self.board)
-        size = len(self.board)
+        if self._str != "":
+            print('youpi')
+            return self._str
+
+        size = len(self._board)
         size_box = math.sqrt(math.sqrt(size))
-        #print(size_box)
-        print_row_separator = " " + ("-" * int((size / (size_box * (size_box + 1)/size_box))))
-        #print(len(print_row_separator))
+        # print(size_box)
+        print_row_separator = " " + ("-" * int((size / (size_box * (size_box + 1) / size_box)))) + "\n"
+        # print(len(print_row_separator))
         print_row = '| '
-        print(print_row_separator)
-        for i, row in enumerate(self.board):
+        self._str += print_row_separator
+        for i, row in enumerate(self._board):
             print_row += '{0} '.format(row)
             if (i + 1) % math.sqrt(math.sqrt(size)) == 0:
                 print_row += '| '
             if (i + 1) % math.sqrt(size) == 0:
-                print(print_row)
+                self._str += print_row + "\n"
                 print_row = '| '
             if (i + 1) % (size / size_box) == 0:
-                print(print_row_separator)
+                self._str += print_row_separator
 
+        return self._str
