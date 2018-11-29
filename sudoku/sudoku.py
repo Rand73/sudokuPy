@@ -54,7 +54,6 @@ class Sudoku:
     def __str__(self):
         """Affiche la grille sur la console."""
         if self._str != "":
-            print('youpi')
             return self._str
 
         size = len(self._board)
