@@ -11,7 +11,7 @@ class Sudoku:
     def __init__(self, board):
         """
 
-        :type size: Taille de la grille sudoku
+        :type _size: Taille de la grille sudoku
         """
         self._board = board
         self._size = int(math.sqrt(len(self._board)))
