@@ -10,7 +10,7 @@ class Sudoku:
     _BOX: int
 
 
-    def __init__(self, board):
+    def __init__(self, board: str):
         """
 
         :type _size: Taille de la grille sudoku
