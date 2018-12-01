@@ -1,7 +1,8 @@
 from sudoku.sudoku import Sudoku
 
+puzzle = open("fichiers/puzzles.sdk", 'r')
 res_puzzle = open("fichiers/puzzle_result.sdk", 'a')
-puzzle = open("fichiers/puzzle.sdk", "r")
+
 
 for line in puzzle:
     line = line.replace('\n', '')
