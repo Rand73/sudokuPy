@@ -84,7 +84,7 @@ class Sudoku:
                                 self._board_array[r][c] = 0
                                 #print(self._board_array)
                     return False
-        self.display()
+        #self.display()
         return True
 
 
